@@ -1,0 +1,2 @@
+moquery -c faultInst
+show version
