@@ -17,6 +17,7 @@ import Constant
 import time
 import requests
 import argparse
+import urllib3
 from requests.auth import HTTPBasicAuth
 from paramiko import SSHClient, MissingHostKeyPolicy
 from datetime import date
@@ -121,6 +122,10 @@ def upload_Tac_File(Filename):
 #Send Command to APICs
 def get_Command_Results():
 
+    #Disable warning msgs when we upload the file into the Cisco Cloud
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+    #Global variable that store the Argument verbose (bolean)
     global Verbose_Mode
 
     #Class that evaluate arguments in the script
